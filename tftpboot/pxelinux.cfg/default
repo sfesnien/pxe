@@ -1,0 +1,34 @@
+default vesamenu.c32
+
+menu title PXE installer menu
+menu background config/linux.jpg
+
+menu hshift 0
+menu vshift 7
+menu width 50
+menu margin 0
+
+# Couleurs
+menu color title  * #FFFFFFFF *
+menu color border * #00000000 #00000000 none
+menu color sel    * #ffffffff #76a1d0ff *
+menu color hotsel 1;7;37;40 #ffffffff #76a1d0ff *
+menu color tabmsg * #ffffffff #00000000 *
+menu color help   37;40 #ffdddd00 #00000000 none
+
+# Position des zones de texte
+menu helpmsgrow 15
+menu cmdlinerow 16
+#menu timeoutrow 16
+menu tabmsgrow 14
+menu tabmsg Choisissez l'OS que vous souhaitez installer
+
+# Pas de prompt, ni timeout
+prompt 0
+timeout 100
+
+# Unactivate escape keyboard and disallow options
+noescape 1
+allowoptions 0
+
+include config/menu.cfg
