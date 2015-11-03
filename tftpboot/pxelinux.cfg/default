@@ -1,34 +1,57 @@
+MENU WIDTH 80
+MENU MARGIN 10
+MENU PASSWORDMARGIN 3
+MENU ROWS 15
+MENU TABMSGROW 15
+MENU CMDLINEROW 15
+MENU ENDROW 24
+MENU PASSWORDROW 11
+MENU TIMEOUTROW 16
+MENU TITLE PXE installer menu
+MENU BACKGROUND config/linux.jpg
+menu color title 1;34;49 #eea0a0ff #cc333355 std
+menu color sel 7;37;40 #ff000000 #bb9999aa all
+menu color border 30;44 #ffffffff #00000000 std
+menu color pwdheader 31;47 #eeff1010 #20ffffff std
+menu color hotkey 35;40 #90ffff00 #00000000 std
+menu color hotsel 35;40 #90000000 #bb9999aa all
+menu color timeout_msg 35;40 #90ffffff #00000000 none
+menu color timeout 31;47 #eeff1010 #00000000 none
+prompt 0
+noescape 1
+timeout 0
 default vesamenu.c32
 
-menu title PXE installer menu
-menu background config/linux.jpg
-
-menu hshift 0
-menu vshift 7
-menu width 50
-menu margin 0
-
-# Couleurs
-menu color title  * #FFFFFFFF *
-menu color border * #00000000 #00000000 none
-menu color sel    * #ffffffff #76a1d0ff *
-menu color hotsel 1;7;37;40 #ffffffff #76a1d0ff *
-menu color tabmsg * #ffffffff #00000000 *
-menu color help   37;40 #ffdddd00 #00000000 none
-
-# Position des zones de texte
-menu helpmsgrow 15
-menu cmdlinerow 16
-#menu timeoutrow 16
-menu tabmsgrow 14
-menu tabmsg Choisissez l'OS que vous souhaitez installer
-
-# Pas de prompt, ni timeout
-prompt 0
-timeout 100
-
-# Unactivate escape keyboard and disallow options
-noescape 1
-allowoptions 0
-
 include config/menu.cfg
+
+#menu begin diagnostic
+#	menu begin Hardware Diagnostic
+#	include config/diag/menu.cfg
+#menu end
+
+#menu begin clonezilla
+#	menu begin Clonezilla Live
+#	include config/clonezilla/menu.cfg
+#menu end
+
+#menu begin debian
+#	menu begin Debian Install	
+#	include config/debian/menu.cfg
+#menu end
+
+#menu begin ubuntu
+#	menu title Ubuntu Install
+#	include config/ubuntu/menu.cfg
+#menu end
+
+#menu begin centos
+#	menu title CentOS Install
+#	include config/centos/menu.cfg
+#menu end
+
+#label bootlocal
+#	menu label Boot from local disk
+#		menu default
+#		localboot 0
+#		timeout 100
+		totaltimeout 1200
